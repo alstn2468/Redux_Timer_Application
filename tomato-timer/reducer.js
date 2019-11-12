@@ -23,7 +23,7 @@ const addSecond = () => {
 };
 
 // Reducer
-const TIMER_DURATION = 1500;
+const TIMER_DURATION = 10;
 
 const initialState = {
     isPlaying: false,
@@ -68,8 +68,7 @@ const applyAddSecond = state => {
         };
     } else {
         return {
-            ...state,
-            isPlaying: false
+            ...initialState
         };
     }
 };
