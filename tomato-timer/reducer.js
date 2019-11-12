@@ -55,8 +55,7 @@ const applyStartTimer = state => {
 const applyRestartTimer = state => {
     return {
         ...state,
-        isPlaying: false,
-        elapsedTime: 0
+        isPlaying: false
     };
 };
 
