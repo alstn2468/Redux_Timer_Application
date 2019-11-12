@@ -34,7 +34,8 @@ class TimerPresenter extends Component {
                 <StatusBar barStyle={"light-content"} />
                 <View style={styles.upper}>
                     <Text style={styles.time}>
-                        {minute}:{second < 10 ? `0${second}` : second}
+                        {minute < 10 ? `0${minute}` : minute}:
+                        {second < 10 ? `0${second}` : second}
                     </Text>
                 </View>
                 <View style={styles.lower}>
