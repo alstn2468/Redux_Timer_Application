@@ -1,13 +1,13 @@
-## RN과 Redux를 이용해 만든 타이머
+## ReactNative과 Redux를 이용해 만든 타이머
 
-Soonchunhyang University<br/>
-Department of Computer Software Engineering
+#### Soonchunhyang University<br/>
+#### Department of Computer Software Engineering
 
 ---
 
-### [김민수](https://github.com/alstn2468)
+#### [김민수](https://github.com/alstn2468)
 
-### [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Blog](https://alstn2468.github.io/) ]<br/>
+#### [ [Facebook](https://www.facebook.com/profile.php?id=100003769223078) ] [ [Github](https://github.com/alstn2468) ] [ [LinkedIn](https://www.linkedin.com/in/minsu-kim-336289160/) ] [ [Blog](https://alstn2468.github.io/) ]<br/>
 
 ### To Do
 
