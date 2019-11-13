@@ -23,7 +23,8 @@ class TimerPresenter extends Component {
             elapsedTime,
             timerDuration,
             startTimer,
-            pauseTimer
+            pauseTimer,
+            resetTimer
         } = this.props;
 
         const minute = Math.floor((timerDuration - elapsedTime) / 60);
