@@ -32,7 +32,6 @@
 
 ### Dependency
 - expo
-- expo-vector-icons
 - prop-types
 - react-native
 - react-redux
@@ -41,7 +40,8 @@
 ### Actions
 
 - `START_TIMER` : 타이머를 시작
-- `RESTART_TIMER` : 타이머를 중지
+- `PAUSE_TIMER` : 타이머를 중지
+- `RESET_TIMER` : 타이머를 초기화
 - `ADD_SECOND` : 타이머 시간 증가
 
 ### Action Creators
@@ -49,7 +49,8 @@
 각각의 `action type`을 반환
 
 - `startTimer` : `START_TIMER`액션 반환
-- `restartTimer` : `RESTART_TIMER`액션 반환
+- `pauseTimer` : `PAUSE_TIMER`액션 반환
+- `resetTimer` : `RESET_TIMER`액션 반환
 - `addSecond` : `ADD_SECOND`액션 반환
 
 ### Reducer
@@ -78,9 +79,13 @@ const initialState = {
 
 이전의 `state`를 저장하고 `isPlaying`을 `true`로 변경<br>
 
-- `applyRestartTimer` : 타이머 중지 **Reducer Function**
+- `applyPauseTimer` : 타이머 중지 **Reducer Function**
 
 이전의 `state`를 저장하고 `isPlaying`을 `false`로 변경<br>
+
+- `applyResetTimer` : 타이머 초기화 **Reducer Function**
+
+`state`를 `initialState`로 초기화<br>
 
 - `applyAddSecond` : 타이머 시간 증가 **Reducer Function**
 
