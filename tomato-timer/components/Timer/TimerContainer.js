@@ -16,7 +16,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         startTimer: bindActionCreators(actionCreators.startTimer, dispatch),
-        restartTimer: bindActionCreators(actionCreators.restartTimer, dispatch),
+        pauseTimer: bindActionCreators(actionCreators.pauseTimer, dispatch),
         addSecond: bindActionCreators(actionCreators.addSecond, dispatch)
     };
 };

@@ -23,7 +23,7 @@ class TimerPresenter extends Component {
             elapsedTime,
             timerDuration,
             startTimer,
-            restartTimer
+            pauseTimer
         } = this.props;
 
         const minute = Math.floor((timerDuration - elapsedTime) / 60);
@@ -40,10 +40,10 @@ class TimerPresenter extends Component {
                 </View>
                 <View style={styles.lower}>
                     {!isPlaying && (
-                        <Button iconName="play-circle" onPress={startTimer} />
+                        <Button buttonName="START" onPress={startTimer} />
                     )}
                     {isPlaying && (
-                        <Button iconName="stop-circle" onPress={restartTimer} />
+                        <Button buttonName="PAUSE" onPress={pauseTimer} />
                     )}
                 </View>
             </View>
