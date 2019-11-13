@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
 import ResetButton from "../ResetButton";
-import { reset } from "expo/build/AR";
 
 class TimerPresenter extends Component {
     componentWillReceiveProps(nextProps) {
