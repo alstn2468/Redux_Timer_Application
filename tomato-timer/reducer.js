@@ -1,6 +1,6 @@
 // Actions
 const START_TIMER = "START_TIMER";
-const RESTART_TIMER = "RESTART_TIMER";
+const PAUSE_TIMER = "PAUSE_TIMER";
 const ADD_SECOND = "ADD_SECOND";
 
 // Action Creators
@@ -10,9 +10,9 @@ const startTimer = () => {
     };
 };
 
-const restartTimer = () => {
+const pauseTimer = () => {
     return {
-        type: RESTART_TIMER
+        type: PAUSE_TIMER
     };
 };
 
@@ -35,8 +35,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case START_TIMER:
             return applyStartTimer(state);
-        case RESTART_TIMER:
-            return applyRestartTimer(state);
+        case PAUSE_TIMER:
+            return applyPauseTimer(state);
         case ADD_SECOND:
             return applyAddSecond(state);
         default:
@@ -52,7 +52,7 @@ const applyStartTimer = state => {
     };
 };
 
-const applyRestartTimer = state => {
+const applyPauseTimer = state => {
     return {
         ...state,
         isPlaying: false
@@ -75,7 +75,7 @@ const applyAddSecond = state => {
 // Export Action Creators
 const actionCreators = {
     startTimer,
-    restartTimer,
+    pauseTimer,
     addSecond
 };
 
