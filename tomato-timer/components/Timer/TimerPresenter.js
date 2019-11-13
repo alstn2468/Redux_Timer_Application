@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
+import ResetButton from "../ResetButton";
+import { reset } from "expo/build/AR";
 
 class TimerPresenter extends Component {
     componentWillReceiveProps(nextProps) {
@@ -34,6 +36,7 @@ class TimerPresenter extends Component {
             <View style={styles.container}>
                 <StatusBar barStyle={"light-content"} />
                 <View style={styles.upper}>
+                    <ResetButton onPress={resetTimer} />
                     <Text style={styles.time}>
                         {minute < 10 ? `0${minute}` : minute}:
                         {second < 10 ? `0${second}` : second}
