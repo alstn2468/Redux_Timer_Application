@@ -53,7 +53,7 @@ const reducer = (state = initialState, action) => {
         case PAUSE_TIMER:
             return applyPauseTimer(state);
         case RESET_TIMER:
-            return applyResetTimer();
+            return applyResetTimer(state);
         case ADD_SECOND:
             return applyAddSecond(state);
         case SET_TIMER:
@@ -78,21 +78,23 @@ const applyPauseTimer = state => {
     };
 };
 
-const applyResetTimer = () => {
+const applyResetTimer = state => {
     return {
-        ...initialState
+        ...initialState,
+        timerDuration: state.timerDuration
     };
 };
 
 const applyAddSecond = state => {
-    if (state.elapsedTime < TIMER_DURATION) {
+    if (state.elapsedTime < state.timerDuration) {
         return {
             ...state,
             elapsedTime: state.elapsedTime + 1
         };
     } else {
         return {
-            ...initialState
+            ...initialState,
+            timerDuration: state.timerDuration
         };
     }
 };
