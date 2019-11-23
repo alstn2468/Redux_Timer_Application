@@ -43,6 +43,7 @@
 - `START_TIMER` : 타이머를 시작
 - `PAUSE_TIMER` : 타이머를 중지
 - `RESET_TIMER` : 타이머를 초기화
+- `SET_TIMER` : 타이머 시간을 지정
 - `ADD_SECOND` : 타이머 시간 증가
 
 ### Action Creators
@@ -52,6 +53,7 @@
 - `startTimer` : `START_TIMER`액션 반환
 - `pauseTimer` : `PAUSE_TIMER`액션 반환
 - `resetTimer` : `RESET_TIMER`액션 반환
+- `setTimer` : `SET_TIMER`액션과 `timeDuration` 반환
 - `addSecond` : `ADD_SECOND`액션 반환
 
 ### Reducer
@@ -86,9 +88,16 @@ const initialState = {
 
 - `applyResetTimer` : 타이머 초기화 **Reducer Function**
 
-`state`를 `initialState`로 초기화<br>
+`initialState`로 초기화해 타이머 정지 및 증가된 시간 초기화<br>
+`timeDuration`은 이전 `state`의 `timeDuration`으로 설정해 유지
 
 - `applyAddSecond` : 타이머 시간 증가 **Reducer Function**
 
 시간이 남았을 경우 이전 `state`저장 및 `elapsedTime` 1증가<br>
-시간이 남지 않았을 경우 `initialState`로 초기 상태로 변경<br>
+시간이 남지 않았을 경우 `initialState`로 타이머 정지 및 증가된 시간 초기화<br>
+`timeDuration`은 이전 `state`의 `timeDuration`으로 설정해 유지<br>
+
+- `applySetTimer` : 타이머 시간 설정 **Reducer Function**
+
+`initialState`로 변경해 타이머 정지 및 초기화 진행<br>
+`setTimer` Action Creator로 받은 `timeDuration`으로 시간 설정<br>
