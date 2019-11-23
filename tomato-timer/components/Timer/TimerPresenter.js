@@ -3,8 +3,20 @@ import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
 import ResetButton from "../ResetButton";
 import TimeSetButton from "../TimeSetButton";
+import TimePicker from "react-native-24h-timepicker";
 
 class TimerPresenter extends Component {
+    onCancel() {
+        this.TimePicker.close();
+    }
+
+    onConfirm(hour, minute) {
+        const { setTimer } = this.props;
+        const timeDuration = parseInt(hour) * 60 + parseInt(minute);
+        setTimer(timeDuration);
+        this.TimePicker.close();
+    }
+
     componentWillReceiveProps(nextProps) {
         const currentProps = this.props;
 
@@ -26,8 +38,7 @@ class TimerPresenter extends Component {
             timerDuration,
             startTimer,
             pauseTimer,
-            resetTimer,
-            setTimer
+            resetTimer
         } = this.props;
 
         const minute = Math.floor((timerDuration - elapsedTime) / 60);
@@ -37,7 +48,7 @@ class TimerPresenter extends Component {
             <View style={styles.container}>
                 <StatusBar barStyle={"light-content"} />
                 <View style={styles.upper}>
-                    <TimeSetButton onPress={() => setTimer(2000)} />
+                    <TimeSetButton onPress={() => this.TimePicker.open()} />
                     <ResetButton onPress={resetTimer} />
                     <Text style={styles.time}>
                         {minute < 10 ? `0${minute}` : minute}:
@@ -52,6 +63,15 @@ class TimerPresenter extends Component {
                         <Button buttonName="PAUSE" onPress={pauseTimer} />
                     )}
                 </View>
+                <TimePicker
+                    ref={ref => {
+                        this.TimePicker = ref;
+                    }}
+                    maxHour={60}
+                    maxMinute={59}
+                    onCancel={() => this.onCancel()}
+                    onConfirm={(hour, minute) => this.onConfirm(hour, minute)}
+                />
             </View>
         );
     }
