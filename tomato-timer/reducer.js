@@ -2,6 +2,7 @@
 const START_TIMER = "START_TIMER";
 const PAUSE_TIMER = "PAUSE_TIMER";
 const RESET_TIMER = "RESET_TIMER";
+const SET_TIMER = "SET_TIMER";
 const ADD_SECOND = "ADD_SECOND";
 
 // Action Creators
@@ -29,6 +30,13 @@ const addSecond = () => {
     };
 };
 
+const setTimer = timerDuration => {
+    return {
+        type: SET_TIMER,
+        timerDuration
+    };
+};
+
 // Reducer
 const TIMER_DURATION = 10;
 
@@ -45,9 +53,11 @@ const reducer = (state = initialState, action) => {
         case PAUSE_TIMER:
             return applyPauseTimer(state);
         case RESET_TIMER:
-            return applyResetTimer(state);
+            return applyResetTimer();
         case ADD_SECOND:
             return applyAddSecond(state);
+        case SET_TIMER:
+            return applySetTimer(action.timerDuration);
         default:
             return state;
     }
@@ -68,7 +78,7 @@ const applyPauseTimer = state => {
     };
 };
 
-const applyResetTimer = state => {
+const applyResetTimer = () => {
     return {
         ...initialState
     };
@@ -87,11 +97,19 @@ const applyAddSecond = state => {
     }
 };
 
+const applySetTimer = timerDuration => {
+    return {
+        ...initialState,
+        timerDuration
+    };
+};
+
 // Export Action Creators
 const actionCreators = {
     startTimer,
     pauseTimer,
     resetTimer,
+    setTimer,
     addSecond
 };
 

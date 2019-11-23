@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 import Button from "../Button";
 import ResetButton from "../ResetButton";
+import TimeSetButton from "../TimeSetButton";
 
 class TimerPresenter extends Component {
     componentWillReceiveProps(nextProps) {
@@ -25,7 +26,8 @@ class TimerPresenter extends Component {
             timerDuration,
             startTimer,
             pauseTimer,
-            resetTimer
+            resetTimer,
+            setTimer
         } = this.props;
 
         const minute = Math.floor((timerDuration - elapsedTime) / 60);
@@ -35,6 +37,7 @@ class TimerPresenter extends Component {
             <View style={styles.container}>
                 <StatusBar barStyle={"light-content"} />
                 <View style={styles.upper}>
+                    <TimeSetButton onPress={() => setTimer(2000)} />
                     <ResetButton onPress={resetTimer} />
                     <Text style={styles.time}>
                         {minute < 10 ? `0${minute}` : minute}:
