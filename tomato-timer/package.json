@@ -23,8 +23,5 @@
     "devDependencies": {
         "babel-preset-expo": "^7.1.0"
     },
-    "private": true,
-    "prettier": {
-        "tabWidth": 4
-    }
+    "private": true
 }
